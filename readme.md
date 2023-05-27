@@ -1,6 +1,6 @@
-# Seven-Unzipper: PowerShell 7-Zip File Extractor
+# Sevun-Zip: PowerShell 7-Zip File Extractor
 
-Seven-Unzipper is a small PowerShell tool that makes it easy to extract 7z files within a specific directory. The script scans a directory for any 7z files, and if found, it automatically extracts them into their respective folders. The script utilizes the 7-Zip software, thus it should be installed and accessible on your machine for the script to work.
+Sevun-Zip is a small PowerShell tool that makes it easy to extract 7z files within a specific directory. The script scans a directory for any 7z files, and if found, it automatically extracts them into their respective folders. The script utilizes the 7-Zip software, thus it should be installed and accessible on your machine for the script to work.
 
 ## Features
 
