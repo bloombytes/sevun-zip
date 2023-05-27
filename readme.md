@@ -28,7 +28,10 @@ The script supports two **optional** command-line arguments which provide additi
 
 ### How to use arguments
 
-You can use these arguments by including them when running the script from your PowerShell console. Here is an example of using the `--unpack` and `--delete` arguments:
+You can use these arguments by including them when running the script from your PowerShell console
+```powershell
+example — `.\sevun-zip.ps1 -unpack -delete` and `-` arguments:
+```
 
 ## Usage
 
@@ -36,3 +39,4 @@ Navigate to the directory where you have your .7z files and where you want the f
 
 ```powershell
 .\sevun-zip.ps1
+```
