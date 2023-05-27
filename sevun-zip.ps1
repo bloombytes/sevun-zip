@@ -5,10 +5,10 @@ param(
 
 $zipFolder = Get-Location | Select-Object -ExpandProperty Path
 $outputFolder = Get-Location | Select-Object -ExpandProperty Path
-$logFile = Join-Path -Path $outputFolder -ChildPath "seven-unzipper.log"
+$logFile = Join-Path -Path $outputFolder -ChildPath "sevun-zip.log"
 
 $7zip = ((Get-ItemProperty HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall\* | ?{$_.DisplayName -like "7-Zip*"}).InstallLocation + "7z.exe")
-
+Write-Host "_.~~._.~~._.~~._ `n script go brrr `n ~~._.~~._.~~._.~~" -ForegroundColor DarkMagenta
 if ($null -eq $7zip) {
     Write-Host "!! 7-Zip executable not found. please make sure it is installed and accessible !!" -ForegroundColor Red
     "!! 7-Zip executable not found. please make sure it is installed and accessible !!" | Add-Content $logFile
@@ -41,22 +41,20 @@ foreach ($zipFile in $zipFiles) {
         }
     }
 
-    $tempLogFile = Join-Path -Path $outputFolder -ChildPath "seven-unzipper.temp"
+    $tempLogFile = Join-Path -Path $outputFolder -ChildPath "sevun-zip.temp"
+    Write-Host "...starting '$zipFile' extract <3" -ForegroundColor DarkMagenta
     Start-Process -FilePath $7zip -ArgumentList "x `"$zipFile`" -o`"$outputSubfolder`" -y" -NoNewWindow -Wait -RedirectStandardOutput $tempLogFile
     $output = Get-Content -Path $tempLogFile
     Remove-Item -Path $tempLogFile
 
     $output | Add-Content $logFile
 
-    if ($LASTEXITCODE -ne 0) {
-        Write-Host "error extracting '$zipFile', $output" -ForegroundColor Red
-        "error extracting '$zipFile', $output" | Add-Content $logFile
-    } else {
+    if ($LASTEXITCODE -eq 0) {
         Write-Host "+ extracted '$zipFile'" -ForegroundColor Green
         "+ extracted '$zipFile'" | Add-Content $logFile
         if ($delete) {
             Remove-Item -Path $zipFile -ErrorAction SilentlyContinue
-            if(!$?) {
+            if (!$?) {
                 Write-Host "Error deleting '$zipFile'" -ForegroundColor Red
                 "!! error removing '$zipFile' !!" | Add-Content $logFile
             } else {
@@ -64,5 +62,8 @@ foreach ($zipFile in $zipFiles) {
                 "- removed '$zipFile'" | Add-Content $logFile
             }
         }
+    } else {
+        Write-Host "error extracting '$zipFile', $output" -ForegroundColor Red
+        "error extracting '$zipFile', $output" | Add-Content $logFile
     }
 }
