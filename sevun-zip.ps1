@@ -15,10 +15,12 @@ if ($null -eq $7zip) {
     Exit
 }
 
+# Check if output folder exists, create if not
 if (!(Test-Path -Path $outputFolder -PathType Container)) {
     New-Item -ItemType Directory -Path $outputFolder | Out-Null
 }
 
+# Extract 7z files
 $zipFiles = Get-ChildItem -Recurse -Filter *.7z
 
 if ($zipFiles.Count -eq 0) {
@@ -45,23 +47,17 @@ foreach ($zipFile in $zipFiles) {
     $output = Get-Content -Path $tempLogFile
     Remove-Item -Path $tempLogFile
 
-    $output | Add-Content $logFile
-
-    if ($LASTEXITCODE -eq 0) {
-        Write-Host "+ extracted '$zipFile'" -ForegroundColor Green
-        "+ extracted '$zipFile'" | Add-Content $logFile
-        if ($delete) {
-            Remove-Item -Path $zipFile -ErrorAction SilentlyContinue
-            if (!$?) {
-                Write-Host "Error deleting '$zipFile'" -ForegroundColor Red
-                "!! error removing '$zipFile' !!" | Add-Content $logFile
-            } else {
-                Write-Host "- removed '$zipFile'" -ForegroundColor Green
-                "- removed '$zipFile'" | Add-Content $logFile
-            }
+    $output | Add-Content $logFile    
+    Write-Host "+ extracted '$zipFile'" -ForegroundColor Green
+    "+ extracted '$zipFile'" | Add-Content $logFile
+    if ($delete) {
+        Remove-Item -Path $zipFile -ErrorAction SilentlyContinue
+        if (!$?) {
+            Write-Host "Error deleting '$zipFile'" -ForegroundColor Red
+            "!! error removing '$zipFile' !!" | Add-Content $logFile
+        } else {
+            Write-Host "- removed '$zipFile'" -ForegroundColor DarkGray
+            "- removed '$zipFile'" | Add-Content $logFile
         }
-    } else {
-        Write-Host "error extracting '$zipFile', $output" -ForegroundColor Red
-        "error extracting '$zipFile', $output" | Add-Content $logFile
     }
 }
