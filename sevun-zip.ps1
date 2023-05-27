@@ -20,12 +20,14 @@ if (!(Test-Path -Path $outputFolder -PathType Container)) {
     New-Item -ItemType Directory -Path $outputFolder | Out-Null
 }
 
-# Extract 7z files
-$zipFiles = Get-ChildItem -Recurse -Filter *.7z
+# Extract 7z and zip files
+$zipFiles = Get-ChildItem -Recurse -Include *.7z, *.zip, *.rar, *.tar, *.gz, `
+    *.tgz, *.bz2, *.tbz, *.tbz2, *.xz, *.iso, *.arj, *.lzh, *.cab, *.Z, `
+    *.cpio, *.rpm, *.deb, *.dmg, *.wim, *.swm, *.vhd, *.vdi, *.vmdk, *.udf
 
 if ($zipFiles.Count -eq 0) {
-    Write-Host "No 7z files found in '$zipFolder'" -ForegroundColor Yellow
-    "No 7z files found in '$zipFolder'" | Add-Content $logFile
+    Write-Host "No 7z or zip files found in '$zipFolder'" -ForegroundColor Yellow
+    "No 7z or zip files found in '$zipFolder'" | Add-Content $logFile
     Exit
 }
 
