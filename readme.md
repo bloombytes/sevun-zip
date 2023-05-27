@@ -30,7 +30,7 @@ The script supports two **optional** command-line arguments which provide additi
 
 You can use these arguments by including them when running the script from your PowerShell console
 ```powershell
-example — `.\sevun-zip.ps1 -unpack -delete` and `-` arguments:
+.\sevun-zip.ps1 -unpack -delete
 ```
 
 ## Usage
