@@ -11,9 +11,9 @@ Sevun-Zip is a small PowerShell tool that makes it easy to extract 7z files with
 
 ## Pre-requisites
 
-1. Windows 7 or later
-2. 7-Zip software installed
-3. PowerShell 5.0 or later
+* Windows 7 or later
+* 7-Zip software installed
+* PowerShell 5.0 or later
 
 ## Installation
 
