@@ -23,15 +23,8 @@ No installation is required for this script. Simply copy the script into a Power
 
 The script supports two **optional** command-line arguments which provide additional functionality:
 
-- `-unpack` : Extracts all the files into a single folder instead of their respective folders
-- `-delete` : Deletes the original .7z file once it has been successfully extracted
-
-### How to use arguments
-
-You can use these arguments by including them when running the script from your PowerShell console
-```powershell
-.\sevun-zip.ps1 -unpack -delete
-```
+- `-unpack`  :  extracts all the files into a single folder instead of their respective folders
+- `-delete`  :  deletes the original .7z file once it has been successfully extracted
 
 ## Usage
 
