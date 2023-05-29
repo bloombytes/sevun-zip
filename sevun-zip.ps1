@@ -15,12 +15,10 @@ if ($null -eq $7zip) {
     Exit
 }
 
-# Check if output folder exists, create if not
 if (!(Test-Path -Path $outputFolder -PathType Container)) {
     New-Item -ItemType Directory -Path $outputFolder | Out-Null
 }
 
-# Extract 7z and zip files
 $zipFiles = Get-ChildItem -Recurse -Include *.7z, *.zip, *.rar, *.tar, *.gz, `
     *.tgz, *.bz2, *.tbz, *.tbz2, *.xz, *.iso, *.arj, *.lzh, *.cab, *.Z, `
     *.cpio, *.rpm, *.deb, *.dmg, *.wim, *.swm, *.vhd, *.vdi, *.vmdk, *.udf
