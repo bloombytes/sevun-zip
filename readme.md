@@ -17,7 +17,7 @@ Sevun-Zip is a small PowerShell tool that makes it easy to extract multiple 7z f
 
 ## Installation
 
-No installation is required for this script. Simply copy the script into a PowerShell (sevun-zip.ps1) file and run it
+No installation is required for this script. Clone the repository into a target directory and run the PowerShell script (sevun-zip.ps1)
 
 ## Command Line Arguments
 
