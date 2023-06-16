@@ -19,9 +19,8 @@ Sevun-Zip is a small PowerShell tool that makes it easy to extract multiple 7z f
 >   - https://learn.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-linux?view=powershell-7.3 
 > - p7zip installed and in the system PATH
 >   - Ubuntu Example
->   ```bash
->    sudo apt-get install p7zip-full 
->    ```
+>     ```bash
+>     sudo apt-get install p7zip-full
 
 ### Windows
 
