@@ -1,13 +1,13 @@
 # Sevun-Zip: PowerShell 7-Zip File Extractor
 
-Sevun-Zip is a small PowerShell tool that makes it easy to extract multiple 7z files within a specific directory
+Sevun-Zip is a small PowerShell tool that makes it easy to extract multiple zipped or compressed files within a specific directory
 
 ## Features
 
-- Automated detection and extraction of 7z files within a directory
-- Checks for existing extracted folders to avoid re-extraction
-- Extracts into each file's respective folder
-- Locates 7-Zip installation using registry keys
+- Automates detection and extraction 
+- Parallel processing for extracts
+- Ignores already extracted files
+- Locates local 7-Zip installation 
 
 <br>
 
