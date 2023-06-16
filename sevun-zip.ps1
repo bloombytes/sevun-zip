@@ -20,7 +20,6 @@ if (Test-IsWindows) {
         Exit
     }
 } else {
-    # Assume p7zip is in PATH for Linux
     $7zip = "7z"
 }
 
