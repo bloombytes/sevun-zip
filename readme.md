@@ -32,9 +32,13 @@ Sevun-Zip is a small PowerShell tool that makes it easy to extract multiple 7z f
 
 <br>
 
-## Installation
+## Installation & Usage
 
-No installation is required for this script. Clone the repository into a target directory and run the PowerShell script (sevun-zip.ps1)
+No installation is required for this script. Clone the repository into a target directory with your zipped files and run the PowerShell script (.ps1 file) from within that directory. The script will automatically extract all the supported compressed files into their respective folders. Unless the -unpack argument is used
+
+```powershell
+.\sevun-zip.ps1
+```
 
 <br>
 
@@ -42,16 +46,9 @@ No installation is required for this script. Clone the repository into a target 
 
 The script supports two **optional** command-line arguments which provide additional functionality:
 
-> `-unpack`  :  extracts all the files into a single folder instead of their respective folders
+> `-unpack`  :  extracts all files into the root of the directory instead of seperate folders
 > 
-> `-delete`  :  deletes the original .7z file once it has been successfully extracted
+> `-delete`  :  **deletes** the original file once it has been successfully extracted
 
 <br>
 
-## Usage
-
-Navigate to the directory where you have your .7z files and where you want the files to be extracted. Run the PowerShell script (.ps1 file) from that directory. The script will automatically extract all the .7z files into their respective folders
-
-```powershell
-.\sevun-zip.ps1
-```
